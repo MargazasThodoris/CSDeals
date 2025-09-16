@@ -1,0 +1,12 @@
+﻿CREATE TABLE `user_document_kyc` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) UNSIGNED NOT NULL,
+  `type` VARCHAR(255) NOT NULL,
+  `content` BLOB NOT NULL,
+  `filename` VARCHAR(255) DEFAULT NULL,
+  `provider` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;

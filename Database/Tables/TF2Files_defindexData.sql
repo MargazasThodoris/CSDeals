@@ -1,0 +1,10 @@
+﻿CREATE TABLE `TF2Files_defindexData` (
+  `defindex` INT(255) UNSIGNED NOT NULL,
+  `itemType` VARCHAR(255) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `prefab` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (defindex)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;

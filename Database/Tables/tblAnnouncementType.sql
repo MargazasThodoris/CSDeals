@@ -1,0 +1,9 @@
+﻿CREATE TABLE `tblAnnouncementType` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `const_name` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;

@@ -1,0 +1,41 @@
+﻿DELIMITER $$
+
+CREATE FUNCTION `getCompanyInventoryValue`()
+  RETURNS DECIMAL(10, 2)
+BEGIN
+
+  DECLARE iret decimal(10, 2);
+
+
+  SELECT
+    SUM(IFNULL(IFNULL(getItemPrice(i.id, ip.finalPrice, ip.priceModifierOnly, ip.priceModifier), 0) * ci.amount, 0)) INTO iret
+  FROM onSiteInventories_CurrentInventories ci
+    JOIN botInventories_ItemHistory bi
+      ON bi.id = ci.historyId
+    JOIN items i
+      ON bi.itemid = i.id
+    LEFT JOIN items_phases ip
+      ON ip.id = i.id
+      AND ip.paintindex = bi.paintindex
+    LEFT JOIN (SELECT
+        historyId,
+        SUM(delta) AS delta
+      FROM botInventories_ItemStackAmountChanges
+      WHERE `time` >= (UNIX_TIMESTAMP() + 86400)
+      GROUP BY historyId) t
+      ON t.historyId = bi.id
+  WHERE bi.isActive = 1
+  AND (
+  ci.userid IN (595203) -- Yazan 
+  OR
+  bi.botid IN (SELECT
+      b.id
+    FROM bots b
+    WHERE b.disabled = 1));
+
+  RETURN IFNULL(iret, 0);
+
+END
+$$
+
+DELIMITER ;

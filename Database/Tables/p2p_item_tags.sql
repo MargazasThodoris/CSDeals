@@ -1,0 +1,16 @@
+﻿CREATE TABLE `p2p_item_tags` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `p2p_items_id` INT(11) UNSIGNED NOT NULL,
+  `key` VARCHAR(225) NOT NULL,
+  `value` VARCHAR(255) NOT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
+  `color` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8mb4,
+COLLATE utf8mb4_general_ci;
+
+ALTER TABLE `p2p_item_tags` 
+  ADD CONSTRAINT `p2p_item_tags_items_id` FOREIGN KEY (p2p_items_id)
+    REFERENCES p2p_items(id) ON DELETE CASCADE ON UPDATE CASCADE;

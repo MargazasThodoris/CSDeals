@@ -1,0 +1,10 @@
+﻿CREATE TABLE `TSF_WAMPmessages` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `time` INT(10) UNSIGNED NOT NULL,
+  `userid` INT(11) NOT NULL DEFAULT 0,
+  `data` TEXT NOT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;

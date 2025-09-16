@@ -1,0 +1,9 @@
+﻿CREATE TABLE `Trulioo_Events` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `json` LONGTEXT NOT NULL COMMENT '(DC2Type:json)',
+  `timestamp` INT(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET utf8mb3,
+COLLATE utf8mb3_unicode_ci;

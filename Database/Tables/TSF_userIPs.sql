@@ -1,0 +1,22 @@
+﻿CREATE TABLE `TSF_userIPs` (
+  `id` BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userid` INT(11) NOT NULL DEFAULT 0,
+  `IP` BIGINT(20) UNSIGNED NOT NULL DEFAULT 0,
+  `IPstr` VARCHAR(46) NOT NULL DEFAULT '',
+  `firstseen` INT(10) UNSIGNED NOT NULL DEFAULT 0,
+  `lastseen` INT(10) UNSIGNED NOT NULL DEFAULT 0,
+  `country` CHAR(2) DEFAULT NULL,
+  PRIMARY KEY (id, userid, IP, IPstr)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;
+
+ALTER TABLE `TSF_userIPs` 
+  ADD UNIQUE INDEX uniq(userid, IP, IPstr);
+
+ALTER TABLE `TSF_userIPs` 
+  ADD INDEX fastsearch(IPstr);
+
+ALTER TABLE `TSF_userIPs` 
+  ADD INDEX recentIPs(userid, lastseen);

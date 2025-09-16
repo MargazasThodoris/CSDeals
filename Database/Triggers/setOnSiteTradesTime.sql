@@ -1,0 +1,10 @@
+﻿DELIMITER $$
+
+CREATE TRIGGER `setOnSiteTradesTime`
+	BEFORE INSERT
+	ON onSiteTrades_Trades
+	FOR EACH ROW
+SET NEW.time=UNIX_TIMESTAMP()
+$$
+
+DELIMITER ;

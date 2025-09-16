@@ -1,0 +1,12 @@
+﻿DELIMITER $$
+
+CREATE TRIGGER `trgrUpdateLastUpdateDateTime`
+	BEFORE UPDATE
+	ON tblOverview
+	FOR EACH ROW
+BEGIN
+  SET NEW.update_time = CURRENT_TIMESTAMP;
+END
+$$
+
+DELIMITER ;

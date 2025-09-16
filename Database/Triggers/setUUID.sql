@@ -1,0 +1,12 @@
+﻿DELIMITER $$
+
+CREATE TRIGGER `setUUID`
+	BEFORE INSERT
+	ON steamTrades_Trades
+	FOR EACH ROW
+IF new.UUID IS NULL THEN
+SET new.UUID = uuid();
+END IF
+$$
+
+DELIMITER ;

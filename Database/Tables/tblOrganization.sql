@@ -1,0 +1,9 @@
+﻿CREATE TABLE `tblOrganization` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
+  `active` TINYINT(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;

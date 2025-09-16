@@ -1,0 +1,11 @@
+﻿CREATE TABLE `tblSkinsBackStatus` (
+  `id` INT(11) UNSIGNED NOT NULL,
+  `name` VARCHAR(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `const_name` VARCHAR(255) DEFAULT NULL,
+  `const_value` VARCHAR(255) DEFAULT NULL,
+  `info` VARCHAR(255) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB,
+CHARACTER SET latin1,
+COLLATE latin1_swedish_ci;
